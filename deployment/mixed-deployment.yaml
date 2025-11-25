@@ -1,0 +1,114 @@
+---
+# Multi-architecture deployment
+# Karpenter will provision both x86 and ARM64 nodes based on availability and cost
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-arch-app
+  namespace: default
+  labels:
+    app: multi-arch
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: multi-arch
+  template:
+    metadata:
+      labels:
+        app: multi-arch
+    spec:
+      # No architecture constraint - allows scheduling on any architecture
+      # Karpenter will choose the most cost-effective option
+      containers:
+      - name: nginx
+        image: nginx:latest  # Must be a multi-arch image
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: multi-arch-service
+  namespace: default
+spec:
+  selector:
+    app: multi-arch
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+# Example with specific instance family preference (Graviton3)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graviton3-optimized
+  namespace: default
+  labels:
+    app: graviton3-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: graviton3-app
+  template:
+    metadata:
+      labels:
+        app: graviton3-app
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: arm64
+        karpenter.k8s.aws/instance-family: m7g  # Graviton3
+      containers:
+      - name: app
+        image: nginx:latest
+        resources:
+          requests:
+            cpu: 2
+            memory: 4Gi
+---
+# Example forcing On-Demand instances (no Spot)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: on-demand-only
+  namespace: default
+  labels:
+    app: on-demand
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: on-demand
+  template:
+    metadata:
+      labels:
+        app: on-demand
+    spec:
+      nodeSelector:
+        karpenter.sh/capacity-type: on-demand
+      containers:
+      - name: critical-app
+        image: nginx:latest
+        resources:
+          requests:
+            cpu: 1
+            memory: 2Gi
