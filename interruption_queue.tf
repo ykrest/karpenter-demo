@@ -57,11 +57,12 @@ data "aws_iam_policy_document" "karpenter_instance_profile" {
       "iam:AddRoleToInstanceProfile",
       "iam:RemoveRoleFromInstanceProfile",
       "iam:TagInstanceProfile",
-      "iam:UntagInstanceProfile"
+      "iam:UntagInstanceProfile",
+      "iam:ListInstanceProfiles"
     ]
 
     resources = [
-      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:instance-profile/${local.name}*"
+      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:instance-profile/*"
     ]
   }
 

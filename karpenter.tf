@@ -9,6 +9,16 @@ resource "kubectl_manifest" "karpenter_namespace" {
 
   depends_on = [module.eks]
 }
+# Install Karpenter release for CRDs
+resource "helm_release" "karpenter_crd" {
+  name       = "karpenter-crd"
+  repository = "oci://public.ecr.aws/karpenter"
+  chart      = "karpenter-crd"
+  version    = var.karpenter_version
+  namespace  = "karpenter"
+  create_namespace = true
+}
+
 
 # Install Karpenter using Helm
 resource "helm_release" "karpenter" {
@@ -28,6 +38,8 @@ resource "helm_release" "karpenter" {
       clusterName: ${module.eks.cluster_name}
       clusterEndpoint: ${module.eks.cluster_endpoint}
       interruptionQueue: ${module.eks.cluster_name}
+      featureGates:
+        StaticCapacity: false
     serviceAccount:
       annotations:
         eks.amazonaws.com/role-arn: ${module.karpenter_irsa.iam_role_arn}
@@ -47,7 +59,8 @@ resource "helm_release" "karpenter" {
     aws_sqs_queue_policy.karpenter_interruption,
     aws_cloudwatch_event_target.karpenter_interruption,
     aws_iam_role_policy_attachment.karpenter_interruption,
-    aws_iam_role_policy_attachment.karpenter_instance_profile
+    aws_iam_role_policy_attachment.karpenter_instance_profile,
+    helm_release.karpenter_crd
   ]
 }
 
