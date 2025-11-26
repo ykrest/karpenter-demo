@@ -8,7 +8,7 @@ This repository contains Terraform code to deploy a production-ready Amazon EKS 
 
 ```bash
 git clone <repository-url>
-cd eks-karpenter-demo-v2
+cd karpenter-demo
 ```
 
 ### 2. Configure Variables
