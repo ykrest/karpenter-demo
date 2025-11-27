@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15" version="29.1.1">
+  <diagram name="Page-1" id="7GpplZqXCcNsBhgsCdce">
+    <mxGraphModel dx="2002" dy="1194" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-11" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="AWS Production Account - us-east-1" vertex="1">
+          <mxGeometry height="1566" width="1086" x="388" y="524" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-12" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Supporting Services" vertex="1">
+          <mxGeometry height="200" width="975" x="408" y="1850" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-15" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Private Database Subnets" vertex="1">
+          <mxGeometry height="249" width="215" x="880" y="1487" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-16" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Private Application Subnets" vertex="1">
+          <mxGeometry height="427" width="816" x="598" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-17" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Application Pods" vertex="1">
+          <mxGeometry height="377" width="490" x="904" y="1035" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-18" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Edge &amp; Load Balancing" vertex="1">
+          <mxGeometry height="361" width="317" x="803" y="561" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-19" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Internet" vertex="1">
+          <mxGeometry height="180" width="167" x="878" y="274" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-20" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Users" vertex="1">
+          <mxGeometry height="54" width="98" x="912.5" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-21" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="CloudFront CDN" vertex="1">
+          <mxGeometry height="54" width="173" x="875" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-22" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="AWS WAF" vertex="1">
+          <mxGeometry height="54" width="124" x="899" y="715" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-23" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Application Load Balancer" vertex="1">
+          <mxGeometry height="54" width="247" x="838" y="831" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-24" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Amazon EKS Cluster&#xa;---&#xa;Kubernetes 1.31&#xa;Auto-scaling: 3-10 nodes&#xa;t3.medium instances" vertex="1">
+          <mxGeometry height="150" width="236" x="633" y="1237" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-25" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Backend Pods&#xa;Python/Flask API&#xa;3-50 replicas" vertex="1">
+          <mxGeometry height="102" width="181" x="1047" y="1261" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-26" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Frontend Pods&#xa;React SPA&#xa;2-20 replicas" vertex="1">
+          <mxGeometry height="102" width="162" x="1136" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-27" parent="1" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;" value="RDS PostgreSQL&#xa;Multi-AZ&#xa;---&#xa;Primary + Standby&#xa;Auto Backups&#xa;Read Replicas" vertex="1">
+          <mxGeometry height="199" width="145" x="915" y="1512" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-28" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Amazon ECR&#xa;Container Registry" vertex="1">
+          <mxGeometry height="78" width="192" x="600" y="1861" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-29" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="AWS Secrets Manager" vertex="1">
+          <mxGeometry height="54" width="211" x="864" y="1873" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-30" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="CloudWatch&#xa;Monitoring &amp;amp; Logs" vertex="1">
+          <mxGeometry height="78" width="188" x="1160" y="1861" as="geometry" />
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-34" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-20" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-21" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-35" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-21" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-22" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-36" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-22" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-23" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-37" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-23" style="curved=1;startArrow=none;endArrow=block;exitX=0.42;exitY=1;entryX=0.36;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-25" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1088" y="910" />
+              <mxPoint x="1088" y="1212" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-38" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-23" style="curved=1;startArrow=none;endArrow=block;exitX=0.63;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-26" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1216" y="910" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-39" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-25" style="curved=1;startArrow=none;endArrow=block;exitX=0.08;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-27" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="987" y="1412" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-40" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-26" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.72;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-25" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1216" y="1212" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-41" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-25" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.44;exitY=1;entryX=0.72;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-29" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1115" y="1412" />
+              <mxPoint x="1115" y="1836" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-42" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-25" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.83;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-30" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1254" y="1412" />
+              <mxPoint x="1254" y="1836" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aiD2l7kvXm3P48UoxAUJ-43" edge="1" parent="1" source="aiD2l7kvXm3P48UoxAUJ-27" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0;entryY=0.21;rounded=0;" target="aiD2l7kvXm3P48UoxAUJ-30" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="987" y="1836" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
