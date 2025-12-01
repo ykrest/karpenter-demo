@@ -1,14 +1,3 @@
-# Create Karpenter namespace
-resource "kubectl_manifest" "karpenter_namespace" {
-  yaml_body = <<-YAML
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: karpenter
-  YAML
-
-  depends_on = [module.eks]
-}
 # Install Karpenter release for CRDs
 resource "helm_release" "karpenter_crd" {
   name       = "karpenter-crd"
