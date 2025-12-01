@@ -42,7 +42,6 @@ resource "helm_release" "karpenter" {
   ]
 
   depends_on = [
-    kubectl_manifest.karpenter_namespace,
     module.karpenter_irsa,
     aws_sqs_queue.karpenter_interruption,
     aws_sqs_queue_policy.karpenter_interruption,
